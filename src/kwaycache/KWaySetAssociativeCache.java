@@ -51,10 +51,11 @@ public class KWaySetAssociativeCache<K, V> implements Cache<K, V> {
     }
 
     public void printCacheContents() {
-        System.out.println("Cache Contents:");
+
         for (int i = 0; i < setSize; i++) {
             System.out.println("Set " + i + ":");
             caches[i].printCacheContents();
+            System.out.println();
         }
     }
 

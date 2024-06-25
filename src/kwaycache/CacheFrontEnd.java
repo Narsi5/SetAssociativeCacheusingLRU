@@ -8,8 +8,9 @@ public class CacheFrontEnd {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the Set Size :");
-        System.out.print("Enter the Entry Size :");
         int setSize = scanner.nextInt();
+        System.out.println();
+        System.out.print("Enter the Entry Size :");
         int entrySize = scanner.nextInt();
 
         initializeCache(setSize,entrySize);
