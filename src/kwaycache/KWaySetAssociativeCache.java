@@ -5,18 +5,18 @@ import java.util.concurrent.locks.ReentrantLock;
 public class KWaySetAssociativeCache<K, V> implements Cache<K, V> {
 
     private final int setSize; // Number of sets (K)
-    private final int entrySize; // Number of entries per set
+    private final int kwaysize; // Number of entries per set
     private final LRUCache<K, V>[] caches; // Array of LRUCache instances
     private final Lock[] locks; // Array of locks for synchronization
 
-    public KWaySetAssociativeCache(int setSize, int entrySize) {
+    public KWaySetAssociativeCache(int setSize, int kwaysize) {
         this.setSize = setSize;
-        this.entrySize = entrySize;
+        this.kwaysize = kwaysize;
         this.caches = new LRUCache[setSize];
         this.locks = new ReentrantLock[setSize];
 
         for (int i = 0; i < setSize; i++) {
-            caches[i] = new LRUCache<>(entrySize);
+            caches[i] = new LRUCache<>(kwaysize);
             locks[i] = new ReentrantLock();
         }
     }
